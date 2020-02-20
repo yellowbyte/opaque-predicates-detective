@@ -1,0 +1,7 @@
+*.pyc
+note.txt
+tags
+__pycache__
+compare_result
+.ipynb_checkpoints
+*.ipynb

@@ -1,0 +1,44 @@
+{
+    "isa": {
+        "x86": {
+            "privileged_instructions": [
+                "ins",
+                "insb",
+                "insw",
+                "insd",
+                "ins",
+                "insb",
+                "insw",
+                "insd",
+                "in",
+                "out",
+                "hlt",
+                "cli",
+                "sti"
+            ],
+            "common_unlifted_instructions": [
+                "fldcw",
+                "fnstcw"
+            ],
+            "incorrectly_lifted_instructions": [
+                "rep cmpsb"
+            ],
+            "stack_pointers": [
+                "ebp",
+                "esp"
+            ],
+            "return_values": [
+                "eax"
+            ]
+        },
+        "x86_64": {
+            "stack_pointers": [
+                "rbp",
+                "rsp"
+            ],
+            "return_values": [
+                "rax"
+            ]
+        }
+    }
+}
