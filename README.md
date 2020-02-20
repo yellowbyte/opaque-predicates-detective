@@ -15,3 +15,7 @@ Current implementation is a [BinaryNinja](https://binary.ninja) plugin.
 (insert YouTube link soon)
 
 Note that the printed virtual addresses in the video are the target addresses of the superfluous branches. (The addresses can easily be changed to the addresses of the opaque conditional statements if desired.)
+
+## Paper
+
+(to be updated)
