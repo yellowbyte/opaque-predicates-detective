@@ -1,0 +1,3 @@
+[submodule "evaluations"]
+	path = evaluations
+	url = git@github.com:yellowbyte/opaque-predicates-detective-evaluations.git
