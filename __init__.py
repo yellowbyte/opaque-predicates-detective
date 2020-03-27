@@ -13,12 +13,8 @@ AnalysisMetadata = namedtuple('AnalysisMetadata', 'compiler spec good_bbs')
 
 
 def find_op_setup(bv, status=None):
-    """Perform necessary setup before core analysis
-
-    (1) Specify compiler (optional)
-    (2) Retrieve non-generic specificications (dict)
-    (3) Retrieve int list of bb start addresses where we have high confidence
-        they are authentic
+    """
+    Perform necessary setup before core analysis
     """
     # maybe binja will find more functions
     # same as following in GUI:
@@ -36,11 +32,6 @@ def find_op_setup(bv, status=None):
         bb_llil_analysis,
     ]
 
-    # NOTE: when running in terminal, it will write result to file! More specifically:
-    # need to have `tfinal` and `tstats` directories where all the binaries are
-    # in `tfinal` and corresponding result for each binary will be in `tstats`.
-    # `tfinal` directory does not need to be named tfinal but binary name needs to end
-    # with '_tfinal'
     (total_patch_locations, total_conds) = find_op(bv, analyses=analysis,
             metadata=metadata, status=status)
 
