@@ -1,6 +1,6 @@
 # <p align='center'> Opaque Predicates Detective </p>
 
-![OP Detective: anime pic credit of: https://www.pinterest.com/pin/571535008936136299/](op_detective.png)
+![OP Detective](op_detective.png)
 
 ## Introduction: 
 Previous approaches to generically identify opaque predicates work by identifying if a conditional branch contains an invariant expression. Our approach generically identify opaque predicates from a different perspective: __the damage caused by the obfuscation__. The damage is localized at the basic block level (or at the function level) regardless of how an opaque predicate's invariant expression is constructed. This approach allows us to also detect an opaque predicate whose invariant expression is constructed across multiple processes! 
@@ -14,9 +14,13 @@ Future work will look into detecting opaque predicates when the damage is code b
 ## Detective in Action:
 Current implementation is a [BinaryNinja](https://binary.ninja) plugin.
 
-(insert YouTube link soon)
+How to run plugin: 
+![Plugin Run](whole.png)
 
-Note that the printed virtual addresses in the video are the target addresses of the superfluous branches. (The addresses can easily be changed to the addresses of the opaque conditional statements if desired.)
+Output:
+![Plugin Output](current_output.png)
+
+Note that the printed virtual addresses (highlighed in green) are the target addresses of the superfluous branches. (The addresses can easily be changed to the addresses of the opaque conditional statements if desired.)
 
 ## Paper Citation
 
