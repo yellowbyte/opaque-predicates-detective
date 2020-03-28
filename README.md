@@ -14,9 +14,13 @@ Future work will look into detecting opaque predicates when the damage is code b
 ## Detective in Action:
 Current implementation is a [BinaryNinja](https://binary.ninja) plugin.
 
+How to run plugin: 
+![Plugin Run](whole.png)
+
+Output:
 ![Plugin Output](current_output.png)
 
-Note that the printed virtual addresses in the video are the target addresses of the superfluous branches. (The addresses can easily be changed to the addresses of the opaque conditional statements if desired.)
+Note that the printed virtual addresses (highlighed in green) are the target addresses of the superfluous branches. (The addresses can easily be changed to the addresses of the opaque conditional statements if desired.)
 
 ## Paper Citation
 
