@@ -11,12 +11,6 @@ OpaquePredicateInfo = namedtuple('OpaquePredicateInfo', 'if_addr bb_edge rules')
 def patch_op(patches, total_conds, bv):
     """
     """
-#### list out all OP that made it to patching stage
-#    log_debug("XXX final filtering before patching XXX\nauthentic_ops: ")
-#    for o in patches:
-#        log_debug("\t0x{0:02X}".format(o.bb_edge.target.start))
-#    log_debug("")
-####
     for patch in patches:
         # final filter: check if OP basic block still at beginning of a basic block
         # if not, it is not the original OP
@@ -36,13 +30,6 @@ def identify_authentic_op(total_patch_locations, total_conds, metadata, bv, patc
     """
     Future Work.
     """
-#### list out all potential OP
-#    log_debug("XXX determine OP authenticity XXX\ntotal_patch_locations: ")
-#    # format: (OP addr, binja bb_edge object, rule list)
-#    for o, b, r in total_patch_locations:
-#        log_debug("\t0x{0:02X}, {1}, {2}".format(o,b,r))
-#    log_debug("")
-####
     patch_op(total_patch_locations, total_conds, bv)
  
 

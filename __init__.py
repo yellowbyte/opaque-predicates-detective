@@ -18,6 +18,7 @@ def find_op_setup(bv, status=None):
     """
     # --- LOGGING ---
     if LOGGING:
+        # debug is the lowest level == LOG EVERYTHING
         log_to_stdout(LogLevel.DebugLog)
     # --- LOGGING ---
 
@@ -30,8 +31,8 @@ def find_op_setup(bv, status=None):
                                 good_bbs=get_authentic_bbs(bv))
     analysis = [
         bb_analysis,
-        bb_mlil_analysis,
         bb_llil_analysis,
+        bb_mlil_analysis,
     ]
 
     (total_patch_locations, total_conds) = find_op(bv, analyses=analysis,
@@ -42,7 +43,8 @@ def find_op_setup(bv, status=None):
     log_debug("")
 
     # determine OP authenticity
-    identify_authentic_op(total_patch_locations, total_conds, metadata, bv, patch=True)
+    identify_authentic_op(total_patch_locations, total_conds, 
+                          metadata, bv, patch=True)
 
 
 class FindOpaqueInBackground(BackgroundTaskThread):

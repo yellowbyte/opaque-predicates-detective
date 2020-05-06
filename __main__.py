@@ -13,18 +13,6 @@ from binaryninja import *
 
 
 @click.command()
-@click.option("--file", "-f", is_flag=True, help="output to file")
-def log_decision(file):
-    """
-    """
-    print(file)
-    if file:
-        log_to_file(LogLevel.InfoLog, stats_filepath)
-    else:
-        log_to_stdout(LogLevel.InfoLog)
-
-
-@click.command()
 @click.argument("filepath")
 @click.argument("stats_filepath", required=False)
 @click.option("--output", "-o", is_flag=True, help="output to file")
