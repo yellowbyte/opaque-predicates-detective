@@ -8,8 +8,7 @@ from collections import namedtuple, defaultdict
 from binaryninja import *
 
 
-COMPILER = 'gcc'
-AnalysisMetadata = namedtuple('AnalysisMetadata', 'compiler spec good_bbs')
+AnalysisMetadata = namedtuple("AnalysisMetadata", "spec good_bbs")
 LOGGING = True  # set to False if don't want logging 
 
 
@@ -27,8 +26,7 @@ def find_op_setup(bv, status=None):
     #     Tools -> Run Analysis Module -> Linear Sweep
     bv.update_analysis_and_wait()
 
-    metadata = AnalysisMetadata(compiler=COMPILER,
-                                spec=get_non_generic_spec(),
+    metadata = AnalysisMetadata(spec=get_non_generic_spec(),
                                 good_bbs=get_authentic_bbs(bv))
     analysis = [
         bb_analysis,
@@ -57,7 +55,8 @@ class FindOpaqueInBackground(BackgroundTaskThread):
 
 
 def find_opaque_in_background(bv):
-    """Start `FindOpaqueInBackground`
+    """
+    Start `FindOpaqueInBackground`
     """
     background_task = FindOpaqueInBackground(bv, "Finding opaque predicates")
     background_task.start()

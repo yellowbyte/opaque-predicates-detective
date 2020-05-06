@@ -13,7 +13,7 @@ from binaryninja import *
 
 
 @click.command()
-@click.option('--file', '-f', is_flag=True, help="output to file")
+@click.option("--file", "-f", is_flag=True, help="output to file")
 def log_decision(file):
     """
     """
@@ -27,11 +27,10 @@ def log_decision(file):
 @click.command()
 @click.argument("filepath")
 @click.argument("stats_filepath", required=False)
-@click.option('--output', '-o', is_flag=True, help="output to file")
+@click.option("--output", "-o", is_flag=True, help="output to file")
 def main(filepath, stats_filepath, output):
-    print(filepath)
-    print(stats_filepath)
-
+    """
+    """
     bv = BinaryViewType.get_view_of_file(filepath)
     if bv is None:
         print("Couldn't open {}".format(filepath))
