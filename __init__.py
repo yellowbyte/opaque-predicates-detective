@@ -20,7 +20,6 @@ def find_op_setup(bv, status=None):
     # --- LOGGING ---
     if LOGGING:
         log_to_stdout(LogLevel.DebugLog)
-        log_to_file(LogLevel.DebugLog, '/home/yellowbyte/binja_log')
     # --- LOGGING ---
 
     # maybe binja will find more functions

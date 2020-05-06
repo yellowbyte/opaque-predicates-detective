@@ -24,7 +24,7 @@ Output:
 
 Note that the printed virtual addresses (highlighed in green) are the target addresses of the superfluous branches. (The addresses can easily be changed to the addresses of the opaque conditional statements if desired.)
 
-## Paper Citation
+## Reference
 
 (to be updated)
 
