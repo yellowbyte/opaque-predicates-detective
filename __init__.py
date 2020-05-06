@@ -10,19 +10,24 @@ from binaryninja import *
 
 COMPILER = 'gcc'
 AnalysisMetadata = namedtuple('AnalysisMetadata', 'compiler spec good_bbs')
+LOGGING = True  # set to False if don't want logging 
 
 
 def find_op_setup(bv, status=None):
     """
     Perform necessary setup before core analysis
     """
+    # --- LOGGING ---
+    if LOGGING:
+        log_to_stdout(LogLevel.DebugLog)
+        log_to_file(LogLevel.DebugLog, '/home/yellowbyte/binja_log')
+    # --- LOGGING ---
+
     # maybe binja will find more functions
     # same as following in GUI:
     #     Tools -> Run Analysis Module -> Linear Sweep
     bv.update_analysis_and_wait()
 
-    log_to_stdout(LogLevel.DebugLog)
-    log_to_file(LogLevel.DebugLog, '/home/yellowbyte/binja_log')
     metadata = AnalysisMetadata(compiler=COMPILER,
                                 spec=get_non_generic_spec(),
                                 good_bbs=get_authentic_bbs(bv))
