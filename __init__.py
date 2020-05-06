@@ -1,7 +1,7 @@
-from op_detective import (bb_llil_analysis, bb_mlil_analysis, bb_analysis,
+from .op_detective import (bb_llil_analysis, bb_mlil_analysis, bb_analysis,
                                   get_authentic_bbs, get_non_generic_spec)
 
-from op_helpers import *
+from .op_helpers import *
 
 from collections import namedtuple, defaultdict
 

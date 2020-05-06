@@ -1,9 +1,9 @@
 import os
 import json
 
-from rules import *  # noqa: F403, F401
+from .rules import *  # noqa: F403, F401
 
-from utils import *  # noqa: F403, F401
+from .utils import *  # noqa: F403, F401
 
 from binaryninja.enums import LowLevelILOperation
 from binaryninja.log import log_debug  # noqa: F401

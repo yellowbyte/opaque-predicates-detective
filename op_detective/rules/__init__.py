@@ -3,8 +3,8 @@ from __future__ import division
 import toolz
 import operator
 
-from llil_rules import *  # noqa: F403, F401
-from mlil_rules import *  # noqa: F403, F401
+from .llil_rules import *  # noqa: F403, F401
+from .mlil_rules import *  # noqa: F403, F401
 from binaryninja.log import log_debug  # noqa: F401
 
 from ..utils import bb2ilbb

@@ -1,10 +1,10 @@
 from __future__ import division
 
-from helpers import (is_instr_set_flag,
+from .helpers import (is_instr_set_flag,
                      is_reg_no_longer_used,
                      instr_with_addr_in_bb)
 
-from llil_rules import call_dest_nonexist
+from .llil_rules import call_dest_nonexist
 
 from binaryninja import *
 from binaryninja.log import log_debug  # noqa: F401

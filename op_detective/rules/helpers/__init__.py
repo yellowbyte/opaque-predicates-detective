@@ -1,5 +1,5 @@
-from llil_helpers import *  # noqa: F401, F403
-from mlil_helpers import *  # noqa: F401, F403
+from .llil_helpers import *  # noqa: F401, F403
+from .mlil_helpers import *  # noqa: F401, F403
 
 from binaryninja import *
 

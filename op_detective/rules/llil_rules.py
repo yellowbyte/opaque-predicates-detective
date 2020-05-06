@@ -1,4 +1,4 @@
-from helpers import contain_type, get_type, match_tree, llil2tree, Tree
+from .helpers import contain_type, get_type, match_tree, llil2tree, Tree
 
 from binaryninja.enums import LowLevelILOperation, RegisterValueType
 from binaryninja.lowlevelil import (LowLevelILInstruction, ILRegister)

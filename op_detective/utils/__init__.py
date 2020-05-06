@@ -1,4 +1,4 @@
-from bb_utils import (bb2ilbb, get_code_ref_bbs, get_last_bb_instr)
+from .bb_utils import (bb2ilbb, get_code_ref_bbs, get_last_bb_instr)
 
 from collections import defaultdict
 
