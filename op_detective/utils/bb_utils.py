@@ -61,7 +61,6 @@ def bb2ilbb(bb, il_type, bv):
     Returns:
         list: il instruction list.
     """
-#    log_debug("[bb2ilbb]: "+str(bb)+" "+str(bb.function))
     il_bb = list()
     addr_list = list()
     cur_func = bb.function
@@ -73,14 +72,12 @@ def bb2ilbb(bb, il_type, bv):
         addr_list.append(current_addr)
         current_addr += instr[1]
     if current_addr != bb.end:
-#        log_debug("[bb2ilbb]: last current_addr "+hex(current_addr))
         addr_list.append(current_addr)
 
     # filter `addr_list` to addr that only exists in `il_type`
     # retrieves list of addresses @ specified il
     addr_list = [a for a in addr_list if il_func.get_instruction_start(a)]
     assert len(addr_list) != 0
-#    log_debug("[bb2ilbb]: addr_list "+str([hex(a) for a in addr_list]))
 
     # retrieve il instructions that share the same addresses that exist in og
     # bb's instructions

@@ -1,6 +1,6 @@
-from collections import namedtuple
+from .op_detective import get_last_bb_instr
 
-from .op_detective import (get_last_bb_instr)
+from collections import namedtuple
 
 from binaryninja import *
 
