@@ -11,6 +11,34 @@ There are two main types of damage resulting from opaque predicates: code bloat 
 
 Future work will look into detecting opaque predicates when the damage is code bloat.
 
+## Identifying Illogical Behaviors
+We have a set of rules that checks if a basic block contains the damage performed by opaque predicates. Essentially, the damage translates to illogical code behaviors since current approach is limited to detecting opaque predicates when the damage is [disassembly desynchronization](https://github.com/yellowbyte/reverse-engineering-reference-manual/blob/master/contents/anti-analysis/Anti-Disassembly.md#-disassembly-desynchronization-). 
+
+The names we used for the rules in the [paper](https://archive.bar/pdfs/bar2020-preprint4.pdf) compared to the code are not the same. This means that annoyance might arise if one tries to match a rule described in paper to its actual implementation. 
+
+Below is a Python Dictionary depicting the relationship between the names in code (dictionary key) vs in paper (dictionary value): 
+
+```python
+RULES_RELATIONSHIP = {
+    # 'names in code'                   'names in paper'
+    'weird_cutoff':                     'abrupt_basic_block_end',
+    'prob_of_unimpl':                   'unimplemented_BNILs_percentage',
+    'priviledged_instructions':         'privileged_instruction_usage',
+    'def_no_use_dep':                   'defined_but_unused',
+    'memaccess_self':                   'memory_pointer_constraints',
+    'conditional_unused':               'defined_but_unused',
+    'stack_pointer_oddity':             'memory_pointer_constraints',
+    'crazy_mem_offset':                 'unreasonable_memory_offset',
+    'type_discrepency_ptr_in_mult_div': 'memory_pointer_constraints',
+    'memaccess_nonexist':               'nonexistence_memory_address',
+    'memaccess_src_dest_discrepancy':   'memory_pointer_constraints',
+    'call_dest_nonexist':               'nonexistence_memory_address',
+    'jmp_dest_nonexist':                'nonexistence_memory_address',
+}
+```
+
+As seen in the dictionary, it is not a one-to-one relationship. The rule names in code is more fine-grained than the rule names in paper. For example, the 'nonexistence\_memory\_address' rule (in paper) corresponds to 'memaccess\_nonexist', 'call\_dest\_nonexist', and 'jmp\_dest\_nonexist' rules (in code). 
+
 ## Detective in Action:
 Current implementation is a [BinaryNinja](https://binary.ninja) plugin.
 
