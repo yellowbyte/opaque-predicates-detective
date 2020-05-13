@@ -10,6 +10,19 @@ OpaquePredicateInfo = namedtuple('OpaquePredicateInfo', 'if_addr bb_edge rules')
 
 def patch_op(patches, total_conds, bv):
     """
+
+    Provide another layer of filter for deciding whether the basic block really
+    contains OP or not
+
+    Args: 
+        bv (BinaryView): top-level binary view handler. Lots of
+                         interesting methods can be accessed.
+        patches: identify_authentic_op function's 'total_patch_locations'.
+                 List of OpaquePredicateInfo, or basic blocks that contains OP
+        total_conds: find_op function's 'total_conds_seen'. Numbers of 
+                     conditional statements seen in binary
+
+    Returns: None. Output to log
     """
     for patch in patches:
         # final filter: check if OP basic block still at beginning of a basic block
@@ -28,7 +41,21 @@ def patch_op(patches, total_conds, bv):
 
 def identify_authentic_op(total_patch_locations, total_conds, metadata, bv, patch=True):
     """
+    
     Future Work.
+
+    Args: 
+        bv (BinaryView): top-level binary view handler. Lots of
+                         interesting methods can be accessed.
+        total_patch_locations: find_op function's 'cur_pass_patch_locations'.
+                               List of OpaquePredicateInfo, or basic blocks that contains OP
+        total_conds: find_op function's 'total_conds_seen'. Numbers of conditional statements
+                     seen in binary
+        metadata: an AnalysisMetadata namedtuple object
+        patch: whether to physically patch (i.e. update CFG to remove OP). Currently unused
+
+    Returns:
+        None.
     """
     patch_op(total_patch_locations, total_conds, bv)
  
@@ -77,16 +104,18 @@ def find_op(bv, analyses=list(), metadata=None, status=None):
                     continue
 
                 # core analysis
-                alerted_rules_in_bb = list()
+                alerted_rules_in_bb = list()  # reset to empty
                 last_instr_addr = get_last_bb_instr(bb)  # if_addr
 
                 for analysis in analyses:
                     analysis_result = analysis(bv, branch.target, 
                                                branch.target.start, metadata)
                     if analysis_result:
+                        # add list of rules alerted in current basic block
                         alerted_rules_in_bb.extend(analysis_result)
 
-                if alerted_rules_in_bb:  # list not empty
+                if alerted_rules_in_bb:  # list not empty there are alerted
+                                         # rules in current basic block
                     # format: (OP addr, binja branch object, rule list)
                     cur_pass_patch_locations.append(
                         OpaquePredicateInfo(last_instr_addr, branch,

@@ -105,13 +105,13 @@ def bb_mlil_analysis(bv, bb, og_bb_start, metadata):
     # result
     alerted_rules = list()
 
-    # rule: def_no_use_dep
-    if def_no_use_dep(bb, bv, isa_specific_data):
-        log_debug(
-            ('* def_no_use_dep: ' + 'bb start( 0x{0:02X} ) ' +
-             'instr addr( 0x{1:02X} )').format(faulting_addr,
-                                               faulting_addr))
-        alerted_rules.append('def_no_use_dep')
+#    # rule: def_no_use_dep
+#    if def_no_use_dep(bb, bv, isa_specific_data):
+#        log_debug(
+#            ('* def_no_use_dep: ' + 'bb start( 0x{0:02X} ) ' +
+#             'instr addr( 0x{1:02X} )').format(faulting_addr,
+#                                               faulting_addr))
+#        alerted_rules.append('def_no_use_dep')
 
     for instr in bb:
 
@@ -125,13 +125,13 @@ def bb_mlil_analysis(bv, bb, og_bb_start, metadata):
                                                        instr.address))
                 alerted_rules.append('memaccess_self')
 
-        # rule: conditional_unused
-        if conditional_unused(instr):
-            log_debug(
-                ('* conditional_unused: ' + 'bb start( 0x{0:02X} ) ' +
-                 'instr addr( 0x{1:02X} )').format(faulting_addr,
-                                                   instr.address))
-            alerted_rules.append('conditional_unused')
+#        # rule: conditional_unused
+#        if conditional_unused(instr):
+#            log_debug(
+#                ('* conditional_unused: ' + 'bb start( 0x{0:02X} ) ' +
+#                 'instr addr( 0x{1:02X} )').format(faulting_addr,
+#                                                   instr.address))
+#            alerted_rules.append('conditional_unused')
 
     return alerted_rules
 

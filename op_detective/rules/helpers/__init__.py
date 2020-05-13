@@ -6,6 +6,15 @@ from binaryninja import *
 
 def instr_with_addr_in_bb(bb, addr):
     """
+
+    Return list of instructions in `bb` that have the virtual address `addr`
+
+    Args:
+        bb: a BasicBlock object
+        addr: virtual address
+
+    Returns:
+        list of instructions
     """
     shared_addr = list()
     log_debug('[instr_with_addr_in_bb]: bb type '+str(bb))

@@ -91,9 +91,8 @@ def crazy_mem_offset(instr, bv):
         for c in const_ils:
             log_debug("[crazy_mem_offset]: const value "+str(c.value.value))
             if bv.is_offset_readable(c.value.value) or bv.is_offset_writable(c.value.value):
-                log_debug("[crazy_mem_offset]: returned early ")
+                log_debug("[crazy_mem_offset]: offset is a valid virtual address")
                 continue
-
             # greater than a certain value and less than a certain value
             if c.constant > 0x100000 or c.constant < -0x100000:
                 return True
@@ -114,6 +113,7 @@ def crazy_mem_offset(instr, bv):
         for c in const_ils:
             if bv.is_offset_readable(c.value.value) or \
                     bv.is_offset_writable(c.value.value):
+                log_debug("[crazy_mem_offset]: offset is a valid virtual address")
                 continue
             # greater than a certain value and less than a certain value
             if c.constant > 0x100000 or c.constant < -0x100000:
