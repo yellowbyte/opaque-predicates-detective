@@ -57,7 +57,7 @@ Note that the printed virtual addresses (highlighed in green) are the target add
     @inproceedings{tungheuristic,
       title={A Heuristic Approach to Detect Opaque Predicates that Disrupt Static Disassembly},
       author={Tung, Yu-Jye and Harris, Ian G}
-	    booktitle={Proceedings of the NDSS Workshop on Binary Analysis Research},
-	    year={2020}
+      booktitle={Proceedings of the NDSS Workshop on Binary Analysis Research},
+      year={2020}
     }
 
