@@ -52,7 +52,7 @@ Output:
 
 Note that the printed virtual addresses (highlighed in green) are the target addresses of the superfluous branches. (The addresses can easily be changed to the addresses of the opaque conditional statements if desired.)
 
-## Reference
+## Reference \[[link to paper](https://www.ndss-symposium.org/wp-content/uploads/2020/04/bar2020-23004-paper.pdf)\]
 
     @inproceedings{tungheuristic,
       title={A Heuristic Approach to Detect Opaque Predicates that Disrupt Static Disassembly},
@@ -60,4 +60,6 @@ Note that the printed virtual addresses (highlighed in green) are the target add
       booktitle={Proceedings of the NDSS Workshop on Binary Analysis Research},
       year={2020}
     }
+
+__NOTE__: Google Scholar has the incorrect BibTex but unfortunately I cannot update it directly on Google Scholar
 
