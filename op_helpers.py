@@ -34,9 +34,9 @@ def patch_op(patches, total_conds, bv):
                 (patch.bb_edge.target.start).start != patch.bb_edge.target.start:
             continue
 
-        log_debug('[authentic op]: 0x{0:02X}'.format(patch.bb_edge.target.start))
+        #log_debug('[authentic op]: 0x{0:02X}'.format(patch.bb_edge.target.start))
         log_info('0x{0:02X}:{1}'.format(patch.bb_edge.target.start, list(set(patch.rules))))
-    log_info('@total_conds:'+str(total_conds))
+    #log_info('@total_conds:'+str(total_conds))
 
 
 def identify_authentic_op(total_patch_locations, total_conds, metadata, bv, patch=True):

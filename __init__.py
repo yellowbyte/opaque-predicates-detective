@@ -37,10 +37,6 @@ def find_op_setup(bv, status=None):
     (total_patch_locations, total_conds) = find_op(bv, analyses=analysis,
             metadata=metadata, status=status)
 
-    log_debug("")
-    log_debug("--- after pass of whole binary ---")
-    log_debug("")
-
     # determine OP authenticity
     identify_authentic_op(total_patch_locations, total_conds, 
                           metadata, bv, patch=True)
