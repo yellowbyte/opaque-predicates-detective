@@ -42,8 +42,6 @@ As seen in the dictionary, it is not a one-to-one relationship. The rule names i
 ## Detective in Action:
 Current implementation is a [BinaryNinja](https://binary.ninja) plugin.
 
-This plugin is not available through BinaryNinja's plugin manager yet! I plan to make some updates to the code (e.g. code readability, code cleanup) before performing all the necessary steps to have this plugin be available through plugin manager. In the meantime, it can be installed [manually](https://docs.binary.ninja/guide/plugins.html#manual-installation).
-
 How to run plugin: 
 ![Plugin Run](whole.png)
 
